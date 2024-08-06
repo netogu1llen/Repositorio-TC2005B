@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chocolate</title>
+    <style>
+        .highlight {
+            color: brown;
+            font-weight: normal;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Chocolate</h1>
+    </header>
+    <nav>
+        <ul>
+            <li>Chocolate 62%</li>
+            <li>Chocolate 70%</li>
+        </ul>
+    </nav>
+    <main>
+        <p>
+            El <span class="highlight">chocolate</span> es <em class="highlight">delicioso</em>.
+        </p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Chocolate con leche</th>
+                    <th>Chocolate manada</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Chocolate con nueces</td>
+                    <td>Chocolate sin nueces</td>
+                </tr>
+                <tr>
+                    <td>Chocolate criollo</td>
+                    <td>Chocolate 100%</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td class="highlight">Nuestros <b>mejores</b> productos</td>
+                </tr>
+            </tfoot>
+        </table>
+        <section>
+            <label for="Seleccion">Elige una pregunta:</label>
+            <select id="Seleccion">
+                <option value="default">Selecciona una pregunta</option>
+                <option value="pregunta1">¿Cuál es la diferencia entre Internet y la World Wide Web?</option>
+                <option value="pregunta2">¿Cuáles son las partes de un URL?</option>
+                <option value="pregunta3">¿Cuál es el propósito de los métodos HTTP: GET, HEAD, POST, PUT, PATCH, DELETE?</option>
+                <option value="pregunta4">¿Qué método HTTP se debe utilizar al enviar un formulario HTML, por ejemplo cuando ingresas tu usuario y contraseña en algún sitio? ¿Por qué?</option>
+                <option value="pregunta5">¿Qué método HTTP se utiliza cuando a través de un navegador web se accede a una página a través de un URL?</option>
+                <option value="pregunta6">Un servidor web devuelve una respuesta HTTP con código 200. ¿Qué significa esto? ¿Ocurrió algún error?</option>
+                <option value="pregunta7">¿Es responsabilidad del desarrollador corregir un sitio web si un usuario reporta que intentó acceder al sitio y se encontró con un error 404? ¿Por qué?</option>
+                <option value="pregunta8">¿Es responsabilidad del desarrollador corregir un sitio web si un usuario reporta que intentó acceder al sitio y se encontró con un error 500? ¿Por qué?</option>
+                <option value="pregunta9">¿Qué significa que un atributo HTML5 esté depreciado o desaprobado (deprecated)? Menciona algunos elementos de HTML 4 que en HTML5 estén desaprobados.</option>
+                <option value="pregunta10">¿Cuáles son las diferencias principales entre HTML 4 y HTML5?</option>
+                <option value="pregunta11">¿Qué componentes de estructura y estilo tiene una tabla?</option>
+                <option value="pregunta12">¿Cuáles son los principales controles de una forma HTML5?</option>
+                <option value="pregunta13">¿Qué tanto soporte HTML5 tiene el navegador que utilizas?</option>
+                <option value="pregunta14">¿Cuál es el ciclo de vida de los sistemas de información?</option>
+                <option value="pregunta15">¿Cuál es el ciclo de desarrollo de sistemas de información?</option>
+            </select>
+        </section>
+        <section>
+            <p id="displayText" class="highlight">
+                Respuesta
+            </p>
+        </section>
+    </main>
+    <script>
+        document.getElementById("Seleccion").addEventListener("change", function() {
+            var displayText = document.getElementById("displayText");
+            var selectedValue = this.value;
+
+            switch (selectedValue) {
+                case "pregunta1":
+                    displayText.innerHTML = "Internet es la red en la que las computadoras están conectadas entre sí y WWW es el espacio que se ocupa para navegar en este Internet. Visto de otra forma, Internet es el auto y WWW viene a ser la carretera.";
+                    break;
+                case "pregunta2":
+                    displayText.innerHTML = "Protocolo: Indica el protocolo de comunicación usado para acceder, como (http, https).<br> Dominio: Nombre del servidor que aloja el recurso, se compone por el nombre y la extensión (.com, .org, .net, etc.).<br> Ruta/Path: Especifica el recurso dentro del servidor que lleva al archivo o recurso deseado.<br>Recurso: Recurso al que accede dentro del sitio.<br>Parámetro de consulta";
+                    break;
+                case "pregunta3":
+                    displayText.innerHTML = "GET: Recuperar datos de un servidor, solicitar un recurso.<br>HEAD: Obtener los encabezados sin recibir todo el cuerpo del mensaje.<br>POST: Enviar datos al servidor para crear un nuevo recurso o realizar una acción.<br>PUT: Actualizar un recurso existente o crear uno si no existe.<br>PATCH: Enviar solo los datos que necesitan ser actualizados dentro del recurso ya existente.<br>DELETE: Eliminar un recurso del servidor.";
+                    break;
+                case "pregunta4":
+                    displayText.innerHTML = "El método POST, ya que este permite enviar datos de forma segura al servidor.";
+                    break;
+                case "pregunta5":
+                    displayText.innerHTML = "El método GET, ya que este permite solicitar y recuperar información de un servidor.";
+                    break;
+                case "pregunta6":
+                    displayText.innerHTML = "No, todo lo contrario, el código 200 indica que la solicitud del cliente fue recibida, comprendida y aceptada con éxito por el servidor.";
+                    break;
+                case "pregunta7":
+                    displayText.innerHTML = "Sí, el error 404 representa que una página solicitada no existe, así que viene a ser un callejón sin salida en el que el usuario se encuentra al intentar navegar por el sitio.<br>Es responsabilidad del desarrollador arreglarlo.";
+                    break;
+                case "pregunta8":
+                    displayText.innerHTML = "Sí, el error 500 indica que el servidor ha encontrado una condición inesperada que le impidió cumplir con la solicitud.<br>Es responsabilidad del desarrollador realizar acciones como revisar los registros, depurar el código y probar el servidor para solucionarlo.";
+                    break;
+                case "pregunta9":
+                    displayText.innerHTML = "Cuando un atributo o elemento HTML está marcado como depreciado o deprecated, significa que ya no se recomienda su uso y este puede ser eliminado en futuras versiones del estándar.<br>Algunos ejemplos de elementos de HTML4 desaprobados en HTML5 podrían ser:<br>&lt;font&gt;<br>&lt;basefont&gt;<br>&lt;u&gt;<br>&lt;dir&gt; y &lt;menu&gt;<br>Todos estos sustituidos por el uso de CSS.";
+                    break;
+                case "pregunta10":
+                    displayText.innerHTML = "HTML5 representó una evolución significativa desde HTML4, ofreciendo nuevas capacidades semánticas, multimedia, formularios, APIs JavaScript, y mejor soporte para CSS y JavaScript. También eliminó elementos y atributos obsoletos.";
+                    break;
+                case "pregunta11":
+                    displayText.innerHTML = "Varía mucho dependiendo de la tabla que se desee realizar, pero los componentes disponibles en HTML5 son los siguientes:<br>• Componentes de estructura:<br>&lt;table&gt; El contenedor principal de la tabla.<br>&lt;caption&gt; Proporciona un título o leyenda para la tabla.<br>&lt;thead&gt; Agrupa el contenido del encabezado de la tabla.<br>&lt;tbody&gt; Agrupa el contenido del cuerpo de la tabla.<br>&lt;tfoot&gt; Agrupa el contenido del pie de la tabla.<br>&lt;tr&gt; Define una fila en la tabla.<br>&lt;th&gt; Define una celda de encabezado en una tabla. Por defecto, el contenido es negrita y centrado.<br>&lt;td&gt; Define una celda de datos en una tabla.<br>• Atributos de estilo:<br>border: Define el estilo del borde de la tabla y sus celdas.<br>padding: Define el espacio interior de las celdas.<br>text-align: Define la alineación del texto dentro de las celdas.<br>background-color: Define el color de fondo de las celdas.<br>width: Define el ancho de la tabla o de las columnas.<br>border-collapse: Controla si los bordes adyacentes de las celdas se colapsan en un solo borde.<br>caption-side: Define la posición de la leyenda de la tabla.";
+                    break;
+                case "pregunta12":
+                    displayText.innerHTML = "HTML5 introduce varios controles de formulario que mejoran la funcionalidad, como datos de contacto (teléfono, correo electrónico), URL, contraseñas, fecha, hora, checkboxes, subir archivos, color, entre otros.";
+                    break;
+                case "pregunta13":
+                    displayText.innerHTML = "Utilizo el navegador Brave, basado en Chromium, lo que significa que comparte muchas características con Google Chrome.<br>Mi navegador tiene 520 de 555 puntos.";
+                    break;
+                case "pregunta14":
+                    displayText.innerHTML = "Concepción: Identificación de la necesidad de un nuevo sistema o mejorar uno existente.<br>Planificación: Definición del alcance, objetivos, y recursos necesarios.<br>Análisis: Recolección y análisis de requisitos.<br>Diseño: Creación de planes detallados del sistema.<br>Desarrollo: Construcción del sistema.<br>Pruebas: Verificar que el sistema funcione correctamente.<br>Implementación: Despliegue del sistema en entorno real.<br>Mantenimiento: Realización de mejoras y correcciones continuamente.<br>Retiro: Desmantelación del sistema antiguo.";
+                    break;
+                case "pregunta15":
+                    displayText.innerHTML = "Planificación: Definición de objetivos y elaboración del plan.<br>Análisis de requisitos: Recopilación y análisis de los requisitos del sistema.<br>Diseño: Diseño detallado del sistema.<br>Desarrollo: Codificación y construcción del sistema.<br>Pruebas: Validación del sistema para asegurar su funcionamiento.<br>Implementación: Despliegue del sistema en entorno real.<br>Mantenimiento: Corrección de errores y actualizaciones posteriores.";
+                    break;
+                default:
+                    displayText.innerHTML = "Respuesta";
+                    break;
+            }
+        });
+    </script>
+    <footer>
+        <p>A01704967 Ernesto Guillén</p>
+        <p>Contacto: A01704967@tec.mx</p>
+        <p>2024 Sitio Web de Ernesto Realizado con <a href="https://code.visualstudio.com/">Visual Studio Code</a>. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
