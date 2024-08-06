@@ -1,8 +1,13 @@
 .naranja{
     color: rgb(139, 82, 1);
+    font-weight: bold;
 
 }
 
 #titulo {
     color:indigo
+}
+
+.naranja:hover{
+    color: rgb(143, 123, 95)  
 }
