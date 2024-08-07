@@ -3,6 +3,7 @@
 <head>
     <title>Chocolate</title>
     <link rel="stylesheet" type="text/css" href="css/mis_estilos.css">
+    
     <style>
             .brown {
             color: brown;
@@ -11,6 +12,7 @@
             body {
             color:gray;
             margin-left: 100px;
+            margin-top:50px;
         }
     </style>
 </head>
@@ -52,8 +54,8 @@
             </tfoot>
         </table>
         <section>
-            <label for="Seleccion">Elige una pregunta:</label>
-            <select id="Seleccion">
+            <label for="Seleccion1">Preguntas lab 1:</label>
+            <select id="Seleccion1">
                 <option value="default">Selecciona una pregunta</option>
                 <option value="pregunta1">¿Cuál es la diferencia entre Internet y la World Wide Web?</option>
                 <option value="pregunta2">¿Cuáles son las partes de un URL?</option>
@@ -76,10 +78,26 @@
             <p id="displayText" class="brown">
                 Respuesta
             </p>
+
+        </section>
+        <section>
+            <label for="Seleccion3">Preguntas lab 3:</label>
+            <select id="Seleccion3">
+                <option value="default">Selecciona una pregunta</option>
+                <option value="lab3_1">Como ingeniero de software ¿cuál es tu recomendación sobre el uso de !important en un CSS? </option>
+                <option value="lab3_2">Si se pone una imagen de fondo en una página HTML, ¿por qué debe escogerse con cuidado?</option>
+                <option value="lab3_3">Como ingeniero de software, ¿cuál es tu recomendación al elegir las unidades de un propiedad de estilo entre %, px y pt?</option>
+                <option value="lab3_4">¿Por qué el uso de una versión minimizada del CSS mejora el rendimiento del sitio?</option>
+            </select>
+        </section>
+        <section>
+            <p id="displayText1" class="brown">
+                Respuesta
+            </p>
         </section>
     </main>
     <script>
-        document.getElementById("Seleccion").addEventListener("change", function() {
+        document.getElementById("Seleccion1").addEventListener("change", function() {
             var displayText = document.getElementById("displayText");
             var selectedValue = this.value;
 
@@ -133,7 +151,26 @@
                     displayText.innerHTML = "Respuesta";
                     break;
             }
+        }); 
+        document.getElementById("Seleccion3").addEventListener("change",function(){
+            var displayText=document.getElementById("displayText");
+            var selectedValue=this.value;
+            switch(selectedValue){
+                case "lab3_1":
+                    displayText1.innerHTML="No, no lo recomendaría.<br>El uso de !important en CSS debe de ser cuidadoso, ya que este recurso sobreescribe cualquier otra regla. Esto significa que la delcaración con !important se aplica incluso si hay otras reglas.";
+                    break;
+                case "lab3_2":
+                    displayText1.innerHTML="Si se pone una imagen de fondo se debe de tener cuidado ya que puede no coincidir con el tamaño del contenedor y generar fallas visuales. "
+                    break;
+                case "lab3_3":
+                    displayText1.innerHTML="La unidad % en CSS se utiliza para definir dimensiones relativas al contenedor. Se recomienda su uso cuando se desea ajustar un elemento proporcionalmente.<br>La unidad px se usa para definir dimensiones en pixeles, estas no cambian con el tamaño de contenedor. Se utilizan cuando se desea una medición exacta y consistente.<br>La medida pt utiliza principalmente en impresión y documentos que requieren medidas físicas precisas.";
+                    break;
+                case "lab3_4":
+                    displayText1.innerHTML="Sirve mucho ya que este reduce el tamño de los archivos, mejora el tiempo de transferencia y la carga del sitio."
+                    break;
+            }
         });
+     
     </script>
     <footer>
         <p>A01704967 Ernesto Guillén</p>
