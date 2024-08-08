@@ -39,3 +39,25 @@ if(is_antojo){
 } else{
     console.info("Regresa cuando tengas antojo de algo dulce");
 }
+
+
+//funciones tradicionales
+function preparar_chocolate(tipo){
+    console.log(`Preparando barra de chocolate ${tipo} `);
+}
+
+//preparar_chocolate(chocolate_favorito);
+
+
+//funciones modernas
+const leche=()=>{
+    console.log("con leche. ");
+}
+
+//leche();
+
+document.getElementById("Preparar chocolate").onclick=()=>{
+    preparar_chocolate(chocolate_favorito);
+    leche();
+
+}
