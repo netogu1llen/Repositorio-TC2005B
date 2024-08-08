@@ -53,11 +53,43 @@ function preparar_chocolate(tipo){
 const leche=()=>{
     console.log("con leche. ");
 }
-
 //leche();
-
 document.getElementById("Preparar chocolate").onclick=()=>{
     preparar_chocolate(chocolate_favorito);
     leche();
 
 }
+
+
+//arreglos
+const arreglo=["Elemento"];
+const arreglo2=new Array();
+
+arreglo.push("Nuevo elemento");
+
+arreglo[10]="Uno más";
+
+//arreglos asociativos
+arreglo["Chocolate"]="café";
+
+
+//recorrido tradicional del arreglo
+
+for (let i=0; i<arreglo.length;i++){
+    console.log(arreglo[i]);
+}
+
+//recorridos alternativos del arreglo
+for (let posicion in arreglo){
+    console.log(posicion +":"+arreglo[posicion]);
+}
+
+
+
+//objetos
+const objeto ={};
+
+const choco={
+    grano:"Chiapas",extras:"nueces y pasas",
+}
+console.log(choco);
