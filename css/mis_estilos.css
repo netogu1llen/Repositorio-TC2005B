@@ -1,3 +1,5 @@
+@import 'https://fonts.googleapis.com/css?family=Roboto:300,400,500';
+
 .naranja{
     color: rgb(139, 82, 1);
     font-weight: bold;
@@ -11,3 +13,24 @@
 .naranja:hover{
     color: rgb(143, 123, 95)  
 }
+
+body {
+    font-family: "Helvetica", "Arial", sans-serif;
+  }
+
+body {
+    line-height: 1.5;
+    padding: 4em 1em;
+  }
+  
+  h2 {
+    margin-top: 1em;
+    padding-top: 1em;
+  }
+
+body {
+    color: #555;
+  }
+h1,h2,strong {
+    color: #333;
+  }
