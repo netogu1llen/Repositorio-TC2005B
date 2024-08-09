@@ -1,17 +1,17 @@
 @import 'https://fonts.googleapis.com/css?family=Roboto:300,400,500';
 
-.naranja{
-    color: rgb(139, 82, 1);
+.azul{
+    color: blue;
     font-weight: bold;
 
 }
 
 #titulo {
-    color:indigo
+    color:rgb(0, 0, 0)
 }
 
-.naranja:hover{
-    color: rgb(143, 123, 95)  
+.azul:hover{
+    color: rgb(27, 139, 184)  
 }
 
 body {
