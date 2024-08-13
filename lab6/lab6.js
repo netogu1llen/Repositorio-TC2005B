@@ -5,6 +5,8 @@ const boton_random=document.getElementById("boton_chocolate_random");
 
 
 
+
+
 const chocolate=[
     {
         descripción:"Chocolate blanco",
@@ -56,3 +58,24 @@ boton_random.onclick=()=>{
     boton_tradicional.style="display:none";
     boton_random.style="display:none";
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Obtiene los botones y el cuadro de información
+    const showInfoButton = document.getElementById('showInfoButton');
+    const infoBox = document.getElementById('infoBox');
+    const hideInfoButton = document.getElementById('hideInfoButton');
+  
+    // Añade el evento de clic al botón de mostrar información
+    showInfoButton.addEventListener('click', function() {
+      // Muestra el cuadro de información
+      infoBox.style.display = 'block';
+    });
+  
+    // Añade el evento de clic al botón de ocultar información
+    hideInfoButton.addEventListener('click', function(event) {
+      event.preventDefault(); // Previene el comportamiento por defecto del enlace
+      // Oculta el cuadro de información
+      infoBox.style.display = 'none';
+    });
+  });
+  
