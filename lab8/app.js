@@ -17,3 +17,17 @@ pasar antes de que se ejute la función*/
 setTimeout(() => {
     console.log("hacked");
 }, 12000);
+
+
+//http es el módulo que contiene todas las funciones de un servidor http
+const http=require('http');
+
+const server=http.createServer( (request,response)=>{
+    console.log(request.url);
+    response.setHeader('Content-Type','text/html');
+    response.write("Hola mundo desde node");
+    response.end();
+
+});
+
+server.listen(3000);
