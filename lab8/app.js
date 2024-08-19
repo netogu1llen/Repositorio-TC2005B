@@ -12,6 +12,14 @@ for (let item of arreglo) {
     }, item);
 } 
 
+function promedio(arreglo){
+    let suma=0;
+    for(let i=0;i<arreglo.length;i++){
+        suma+=arreglo[i];
+    }
+    const promedio=suma/arreglo.length;
+}
+console.log(promedio);
 /*setTimeout recibe como parámetro una funcion y la cantidad de segundos que van a 
 pasar antes de que se ejute la función*/
 setTimeout(() => {
@@ -124,3 +132,4 @@ const server=http.createServer( (request,response)=>{
 });
 
 server.listen(3000);
+
