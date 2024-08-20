@@ -1,0 +1,19 @@
+{
+  "name": "repositorio-tc2005b",
+  "version": "1.0.0",
+  "description": "Proyecto tc2005",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/netogu1llen/Repositorio-TC2005B.git"
+  },
+  "author": "Neto",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/netogu1llen/Repositorio-TC2005B/issues"
+  },
+  "homepage": "https://github.com/netogu1llen/Repositorio-TC2005B#readme"
+}
