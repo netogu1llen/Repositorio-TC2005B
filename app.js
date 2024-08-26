@@ -1,5 +1,56 @@
 //setTimeout recibe como parámetro, una función, y la cantidad de segundos
 //que van a pasar antes de que se ejecute la función.
+
+const html_header=`
+            <!DOCTYPE html>
+            <head>
+                <meta charset="UTF-8">
+                <title>Chocolate</title>
+                <!-- Compiled and minified CSS -->
+                <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+            </head>
+            <body class="brown lighten-5">
+                    <!-- Barra de navegación -->
+                <nav class="brown darken-3">
+                    <div class="nav-wrapper container">
+                        <a href="#" class="brand-logo">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmidKKEE5rZhJMOAYpw6TF8bQpJQXptIdP9Q&s" alt="Logo" style="height: 60px;">
+                            <a>
+                        <ul id="nav-mobile" class="right hide-on-med-and-down">
+                            <li><a href="3000">Inicio</a></li>
+                            <li><a href="#">Menú</a></li>
+                            <li><a href="#">Contacto</a></li>
+                        </ul>
+                    </div>
+                </nav>
+`;
+const html_footer=`
+        <footer class="page-footer">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">Footer Content</h5>
+                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Links</h5>
+                <ul>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2014 Copyright Text
+            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            </div>
+          </div>
+        </footer>
+`;
 setTimeout(() => {
     console.log("12 segundos");
 }, 12000);
@@ -10,75 +61,44 @@ const server = http.createServer( (request, response) => {
     response.setHeader('Content-Type', 'text/html');
 
 
-    if (request.url == "/preparar") {
+    if (request.url == "/preparar" && request.method == "GET") {
         response.write(`
-            <!DOCTYPE html>
-            <head>
-                <meta charset="UTF-8">
-                <title>Chocolate</title>
-                <!-- Compiled and minified CSS -->
-                <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
-            </head>
-            <body class="brown lighten-5">
-                    <!-- Barra de navegación -->
-                <nav class="brown darken-3">
-                    <div class="nav-wrapper container">
-                        <a href="#" class="brand-logo">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmidKKEE5rZhJMOAYpw6TF8bQpJQXptIdP9Q&s" alt="Logo" style="height: 60px;">
-                            <a>
-                        <ul id="nav-mobile" class="right hide-on-med-and-down">
-                            <li><a href="3000">Inicio</a></li>
-                            <li><a href="#">Menú</a></li>
-                            <li><a href="#">Contacto</a></li>
-                        </ul>
-                    </div>
-                </nav>
-                <br></br>
-                <div class="row">
-                    <form class="col s12">
-                    <div class="row">
-                        <div class="input-field col s6">
-                        <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-                        <label for="first_name">First Name</label>
-                        </div>
-                        <div class="input-field col s6">
-                        <input id="last_name" type="text" class="validate">
-                        <label for="last_name">Last Name</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                        <input id="email" type="email" class="validate">
-                        <label for="email">Email</label>
-                        </div>
-                    </div>
+            ${html_header}
+                    <header>
+                    <h1 class="title">Preparar Pedido</h1>
+                    </header>
+                <main>
+                    <form action="/preparar" method="POST">
+                        <div class="row">
+                        
+                            <label for="nombre">Nombre</label>
+                            <input id="nombre" name="nombre" class="input" type="text" placeholder="Ernesto Guillen" required>
+                            <label for="telefono">Teléfono</label>
+                            <input id="telefono" phone="telefono" class="input" type="number" placeholder="442-xxxx-xxxx">
+                            </div>
+                        </div>           
                     </form>
+                </main>
+
+                <div class="input-field col s12">
+                    <select>
+                    <option value="" disabled selected>Choose your option</option>
+                    <option value="1">Chocolae blanco</option>
+                    <option value="2">Chocolate tradicional</option>
+                    <option value="3">Chocolate pequeño</option>
+                    </select>
+                    <label>Selecciona</label>
                 </div>
-            `);
-    
-    } else {
-        response.write(`
-            <!DOCTYPE html>
-            <head>
-                <meta charset="UTF-8">
-                <title>Chocolate</title>
-                <!-- Compiled and minified CSS -->
-                <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
-            </head>
-            <body class="brown lighten-5">
-                    <!-- Barra de navegación -->
-                <nav class="brown darken-3">
-                    <div class="nav-wrapper container">
-                        <a href="#" class="brand-logo">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmidKKEE5rZhJMOAYpw6TF8bQpJQXptIdP9Q&s" alt="Logo" style="height: 60px;">
-                            <a>
-                        <ul id="nav-mobile" class="right hide-on-med-and-down">
-                            <li><a href="3000">Inicio</a></li>
-                            <li><a href="#">Menú</a></li>
-                            <li><a href="#">Contacto</a></li>
-                        </ul>
-                    </div>
-                </nav>
+                <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                  <i class="material-icons right">send</i>
+                </button>
+            ${html_footer}
+                `);
+
+    } else if (request.url == "/preparar" && request.method == "POST") 
+        {
+            response.write(`
+            ${html_header}
                 <div class="container">
                     <h1 class="brown-text text-darken-4">Chocolate</h1>
                     <h2 class="brown-text text-darken-2">Menú:</h2>
@@ -101,9 +121,6 @@ const server = http.createServer( (request, response) => {
                         </tbody>
                     </table>
                     <a href="/preparar" class="btn brown darken-3" id="boton_preparar">Realizar pedido</a>
-                    <button style="display:none" class="btn brown lighten-4" id="boton_chocolate_blanco">Chocolate blanco</button>
-                    <button style="display:none" class="btn brown darken-4" id="boton_chocolate_tradicional">Chocolate tradicional</button>
-                    <button style="display:none" class="btn orange darken-4" id="boton_chocolate_random">Chocolate aleatorio</button>
                     
                     <br></br>
 
@@ -142,10 +159,12 @@ const server = http.createServer( (request, response) => {
                             <blockquote>
                                 Material Design, desarrollado por Google, es un lenguaje de diseño que usa metáforas de materiales físicos, como profundidad y sombras, para crear interfaces intuitivas y estéticas. Se enfoca en movimientos fluidos, espaciado claro, retroalimentación interactiva, y consistencia en colores y tipografía para una experiencia de usuario coherente y atractiva.
                             </blockquote>
+                    </div>
+                    </div>
+                </div>
+                ${html_footer}
                 <!-- Compiled and minified JavaScript -->
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-                <script src="lab7.js"></script>
-                </script>
             </body>
             </html>
 
