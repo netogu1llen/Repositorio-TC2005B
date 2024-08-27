@@ -1,65 +1,66 @@
-//setTimeout recibe como parámetro, una función, y la cantidad de segundos
-//que van a pasar antes de que se ejecute la función.
-
-const html_header=`
+const html_header = `
             <!DOCTYPE html>
             <head>
                 <meta charset="UTF-8">
                 <title>Chocolate</title>
-                <!-- Compiled and minified CSS -->
-                <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+                <!-- Bulma CSS -->
+                <link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css" rel="stylesheet">
             </head>
-            <body class="brown lighten-5">
+            <body class="has-background-light">
                     <!-- Barra de navegación -->
-                <nav class="brown darken-3">
-                    <div class="nav-wrapper container">
-                        <a href="#" class="brand-logo">
+                <nav class="navbar has-background-light-brown" role="navigation" aria-label="main navigation" style="background-color: #D2B48C;">
+                    <div class="navbar-brand">
+                        <a class="navbar-item" href="#">
                             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmidKKEE5rZhJMOAYpw6TF8bQpJQXptIdP9Q&s" alt="Logo" style="height: 60px;">
-                            <a>
-                        <ul id="nav-mobile" class="right hide-on-med-and-down">
-                            <li><a href="3000">Inicio</a></li>
-                            <li><a href="#">Menú</a></li>
-                            <li><a href="#">Contacto</a></li>
-                        </ul>
+                        </a>
+                    </div>
+
+                    <div id="navbarBasicExample" class="navbar-menu">
+                        <div class="navbar-end">
+                            <div class="navbar-item">
+                                <div class="buttons">
+                                    <a href="3000" class="button is-light">
+                                        Inicio
+                                    </a>
+                                    <a href="#" class="button is-light">
+                                        Menú
+                                    </a>
+                                    <a href="#" class="button is-light">
+                                        Contacto
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </nav>
 `;
-const html_footer=`
-        <footer class="page-footer">
-          <div class="container">
-            <div class="row">
-              <div class="col l6 s12">
-                <h5 class="white-text">Footer Content</h5>
-                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-              </div>
-              <div class="col l4 offset-l2 s12">
-                <h5 class="white-text">Links</h5>
-                <ul>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="footer-copyright">
-            <div class="container">
-            © 2014 Copyright Text
-            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-            </div>
-          </div>
-        </footer>
+const html_footer = `
+    <footer class="footer">
+    <div class="content has-text-centered">
+        <p>
+        <strong>Bulma</strong> by <a href="https://jgthms.com">Jeremy Thomas</a>.
+        The source code is licensed
+        <a href="https://opensource.org/license/mit">MIT</a>. The
+        website content is licensed
+        <a href="https://creativecommons.org/licenses/by-nc-sa/4.0//"
+            >CC BY NC SA 4.0</a
+        >.
+        </p>
+    </div>
+    </footer>
 `;
+
+//setTimeout recibe como parámetro, una función, y la cantidad de segundos
+//que van a pasar antes de que se ejecute la función.
+
 setTimeout(() => {
     console.log("12 segundos");
 }, 12000);
 //http es el módulo que contiene todas las funciones de un servidor http
 const http = require('http');
-const server = http.createServer( (request, response) => {    
+const server = http.createServer((request, response) => {    
     console.log(request.url);
     response.setHeader('Content-Type', 'text/html');
-
 
     if (request.url == "/preparar" && request.method == "GET") {
         response.write(`
@@ -69,40 +70,66 @@ const server = http.createServer( (request, response) => {
                     </header>
                 <main>
                     <form action="/preparar" method="POST">
-                        <div class="row">
-                        
-                            <label for="nombre">Nombre</label>
-                            <input id="nombre" name="nombre" class="input" type="text" placeholder="Ernesto Guillen" required>
-                            <label for="telefono">Teléfono</label>
-                            <input id="telefono" phone="telefono" class="input" type="number" placeholder="442-xxxx-xxxx">
+                        <div class="field">
+                            <label for="nombre" class="label">Nombre</label>
+                            <div class="control">
+                                <input id="nombre" name="nombre" class="input" type="text" placeholder="Ernesto Guillen" required>
+                            </div>
+                            <label for="telefono" class="label">Teléfono</label>
+                            <div class="control">
+                                <input id="telefono" name="telefono" class="input" type="number" placeholder="442-xxxx-xxxx">
                             </div>
                         </div>           
                     </form>
                 </main>
 
-                <div class="input-field col s12">
-                    <select>
-                    <option value="" disabled selected>Choose your option</option>
-                    <option value="1">Chocolae blanco</option>
-                    <option value="2">Chocolate tradicional</option>
-                    <option value="3">Chocolate pequeño</option>
-                    </select>
-                    <label>Selecciona</label>
-                </div>
-                <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-                  <i class="material-icons right">send</i>
-                </button>
+                <form action="#">
+                    <div class="field">
+                        <label class="radio">
+                            <input name="tipo_chocolate" type="radio" checked />
+                            Chocolate blanco
+                        </label>
+                    </div>
+                    <div class="field">
+                        <label class="radio">
+                            <input name="tipo_chocolate" type="radio" />
+                            Chocolate tradicional
+                        </label>
+                    </div>
+                    <div class="field">
+                        <label class="radio">
+                            <input name="tipo_chocolate" type="radio" />
+                            Chocolates pequeños
+                        </label>
+                    </div>
+                </form>
+                <button class="button is-dark" type="submit" name="action">Submit</button>
             ${html_footer}
                 `);
+            response.end();
+            
+    } else if (request.url == "/preparar" && request.method == "POST") {
+        const datos = [];
+        
+        request.on('data', (dato) => {
+            console.log(dato);
+            datos.push(dato);
+        });
 
-    } else if (request.url == "/preparar" && request.method == "POST") 
-        {
-            response.write(`
+        request.on('end', () => {
+            const datos_completos = Buffer.concat(datos).toString();
+            console.log(datos_completos);
+            const tipo_chocolate = datos_completos.split("&")[1].split("=")[1];
+            console.log(`Preparando barra de ${tipo_chocolate}`);
+        });
+
+    } else {
+        response.write(`
             ${html_header}
                 <div class="container">
-                    <h1 class="brown-text text-darken-4">Chocolate</h1>
-                    <h2 class="brown-text text-darken-2">Menú:</h2>
-                    <table class="striped">
+                    <h1 class="title has-text-dark">Chocolate</h1>
+                    <h2 class="subtitle has-text-dark">Menú:</h2>
+                    <table class="table is-striped">
                         <thead>
                             <tr>
                                 <th>Tipo</th>
@@ -120,15 +147,16 @@ const server = http.createServer( (request, response) => {
                             </tr>
                         </tbody>
                     </table>
-                    <a href="/preparar" class="btn brown darken-3" id="boton_preparar">Realizar pedido</a>
+                    <a href="/preparar" class="button is-dark" id="boton_preparar">Realizar pedido</a>
                     
-                    <br></br>
+                    <br>
 
-                    <img width="30%" id="imagen_chocolate"src="" alt=""/>
-                    <br></br>
+                    <img width="30%" id="imagen_chocolate" src="" alt=""/>
+                    <br>
+
                     <div class="container">
                         <!-- Botón que despliega el cuadro de información -->
-                        <a class="waves-effect waves-light btn" id="showInfoButton">Mostrar Información</a>
+                        <a class="button is-dark" id="showInfoButton">Mostrar Información</a>
                     
                         <!-- Cuadro de información oculto -->
                         <div id="infoBox" class="card" style="display: none;">
@@ -163,11 +191,8 @@ const server = http.createServer( (request, response) => {
                     </div>
                 </div>
                 ${html_footer}
-                <!-- Compiled and minified JavaScript -->
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
             </body>
             </html>
-
         `);
     }
     
